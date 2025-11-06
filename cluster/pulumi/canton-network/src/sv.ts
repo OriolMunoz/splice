@@ -391,6 +391,7 @@ async function installValidator(
     ],
     additionalJvmOptions: svConfig.validatorApp?.additionalJvmOptions || '',
     resources: svConfig.validatorApp?.resources,
+    participantPruningConfig: svConfig.validatorApp?.participantPruningSchedule,
   });
 
   return validator;

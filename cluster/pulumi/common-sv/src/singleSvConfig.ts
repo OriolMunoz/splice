@@ -6,7 +6,10 @@ import {
   CloudSqlConfigSchema,
   K8sResourceSchema,
 } from '@lfdecentralizedtrust/splice-pulumi-common';
-import { ValidatorAppConfigSchema } from '@lfdecentralizedtrust/splice-pulumi-common-validator/src/config';
+import {
+  ParticipantPruningScheduleConfigSchema,
+  ValidatorAppConfigSchema,
+} from '@lfdecentralizedtrust/splice-pulumi-common-validator/src/config';
 import { spliceConfig } from '@lfdecentralizedtrust/splice-pulumi-common/src/config/config';
 import { clusterYamlConfig } from '@lfdecentralizedtrust/splice-pulumi-common/src/config/configLoader';
 import { merge } from 'lodash';
@@ -98,6 +101,7 @@ const SvValidatorAppConfigSchema = z
       .optional(),
     auth0: Auth0ConfigSchema.optional(),
     resources: K8sResourceSchema,
+    participantPruningSchedule: ParticipantPruningScheduleConfigSchema,
   })
   .and(ValidatorAppConfigSchema);
 // https://docs.cometbft.com/main/explanation/core/running-in-production

@@ -18,6 +18,13 @@ export const ParticipantConfigSchema = z.object({
   additionalEnvVars: z.array(EnvVarConfigSchema).default([]),
   additionalJvmOptions: z.string().optional(),
 });
+export const ParticipantPruningScheduleConfigSchema = z
+  .object({
+    cron: z.string(),
+    maxDuration: z.string(),
+    retention: z.string(),
+  })
+  .optional();
 
 export const ValidatorNodeConfigSchema = z.object({
   logging: z
@@ -26,13 +33,7 @@ export const ValidatorNodeConfigSchema = z.object({
     })
     .default({}),
   kms: KmsConfigSchema.optional(),
-  participantPruningSchedule: z
-    .object({
-      cron: z.string(),
-      maxDuration: z.string(),
-      retention: z.string(),
-    })
-    .optional(),
+  participantPruningSchedule: ParticipantPruningScheduleConfigSchema.optional(),
   participant: ParticipantConfigSchema.optional(),
   validatorApp: ValidatorAppConfigSchema.optional(),
   disableAuth: z.boolean().default(false), // Note that this is currently ignored everywhere except for validator1, where it is used for testing only

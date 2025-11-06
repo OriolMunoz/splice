@@ -1893,6 +1893,11 @@
             "prefix": "mock/sv-1"
           }
         },
+        "participantPruningSchedule": {
+          "cron": "0 5 * * * ?",
+          "maxDuration": "15m",
+          "retention": "30d"
+        },
         "persistence": {
           "databaseName": "validator_sv_1",
           "port": 5432,
@@ -2731,6 +2736,11 @@
             },
             "prefix": "mock/sv-da-1"
           }
+        },
+        "participantPruningSchedule": {
+          "cron": "0 5 * * * ?",
+          "maxDuration": "15m",
+          "retention": "30d"
         },
         "persistence": {
           "databaseName": "validator_sv_da_1",

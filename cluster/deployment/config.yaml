@@ -158,6 +158,10 @@ svs:
           memory: '2Gi'
         limits:
           memory: '4Gi'
+      participantPruningSchedule:
+        cron: "0 5 * * * ?" # Runs daily at 5AM
+        maxDuration: "15m"
+        retention: "30d" # Keep 30 days of ACS data
 validators:
   validator-runbook:
     namespace: validator
